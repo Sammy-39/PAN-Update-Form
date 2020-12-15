@@ -21,7 +21,7 @@
     </style>    
 </head>
 <body>
-    <div style="background-color:seashell">
+    <div style="background-color:beige">
 
         <div style="background-color:brown; color: white;">
             <h5 style="text-align: center;"> Request For New PAN Card Or/And Changes Or Correction in PAN Data </h5> 
@@ -37,9 +37,9 @@
                           <p style="display: inline;"> <span> * </span> Whether citizen of India </p>
                           <div style="display: inline; ">
                             <label for="cyes" style="font-weight: normal; padding-left: 60px;"> Yes </label>
-                            <input type="radio" id='cyes'>
+                            <input type="radio" id='cyes' name="citizen">
                             <label for="cno" style="font-weight: normal; padding-left: 20px;"> No </label>
-                            <input type="radio" id='cno'>
+                            <input type="radio" id='cno' name="citizen">
                           </div>
                       </td>    
                   </tr> 
@@ -67,11 +67,13 @@
                         <p style="display: inline;"> Title </p>
                         <div style="display: inline;">
                           <label for="tsh" style="font-weight: normal; padding-left: 10px;"> Shri/Mr </label>
-                          <input type="radio" id='tsh'>
+                          <input type="radio" id='tsh' name="title">
                           <label for="tsm" style="font-weight: normal; padding-left: 20px;"> Smt./Mrs. </label>
-                          <input type="radio" id='tsm'>
+                          <input type="radio" id='tsm' name="title">
                           <label for="tk" style="font-weight: normal; padding-left: 20px;"> Kumari/Ms </label>
-                          <input type="radio" id='tk'>
+                          <input type="radio" id='tk' name="title">
+                          <p style="display: inline; font-weight: lighter; padding-left: 15px;
+                          color: gray;">   M/s </p>
                         </div>
                     </td>    
                 </tr>
@@ -125,9 +127,9 @@
                     </td>
                     <td>
                             <label for="cyes" style="font-weight: normal;"> Yes </label>
-                            <input type="radio" id='cyes'>
+                            <input type="radio" id='cyes' name="singlepar">
                             <label for="cno" style="font-weight: normal;"> No </label>
-                            <input type="radio" id='cno'>
+                            <input type="radio" id='cno' name="singlepar">
                     </td>      
                 </tr>
 
@@ -189,9 +191,9 @@
                     </td>
                     <td>
                             <label for="fn" style="font-weight: normal;"> Father Name </label>
-                            <input type="radio" id='fn'>
+                            <input type="radio" id='fn' name="parent">
                             <label for="mn" style="font-weight: normal; padding-left: 20px;"> Mother Name </label>
-                            <input type="radio" id='mn'>
+                            <input type="radio" id='mn' name="parent">
                     </td>      
                 </tr>
 
@@ -236,11 +238,11 @@
                     </td>
                     <td>
                             <label for="mal" style="font-weight: normal;"> Male </label>
-                            <input type="radio" id='mal'>
+                            <input type="radio" id='mal' name="gender">
                             <label for="fmal" style="font-weight: normal; padding-left: 20px;"> Female </label>
-                            <input type="radio" id='fmal'>
+                            <input type="radio" id='fmal' name="gender">
                             <label for="tg" style="font-weight: normal; padding-left: 20px;"> TransGender </label>
-                            <input type="radio" id='tg'>
+                            <input type="radio" id='tg' name="gender">
                     </td>      
                 </tr>
 
@@ -271,9 +273,9 @@
                     </td> 
                     <td>
                         <label for="res" style="font-weight: normal;"> Residential </label>
-                        <input type="radio" id='res'>
+                        <input type="radio" id='res' name="address">
                         <label for="off" style="font-weight: normal; padding-left: 20px;"> Office </label>
-                        <input type="radio" id='off'>
+                        <input type="radio" id='off' name="address">
                     </td>     
                 </tr>
 
@@ -427,11 +429,11 @@
                         <table style="width: 100%;">
                             <tr>
                                 <td> 
-                                   <input type="radio" id='mobno'>
+                                   <input type="radio" id='mobno' name="comnumber">
                                    <label for="mobno" style="font-weight: normal;"> Mobile No. </label>
                                 </td>
                                 <td> 
-                                    <input type="radio" id='telno'>
+                                    <input type="radio" id='telno' name="comnumber">
                                     <label for="telno" style="font-weight: normal;"> Telephone No. </label>
                                  </td>
                             <tr>
@@ -465,9 +467,9 @@
                         <p style="font-weight: normal;"> In case of a citizen of India, then </p>
                     </td> 
                     <td>
-                        <input type="radio" id='aadh'>
+                        <input type="radio" id='aadh' name="aadeid">
                         <label for="aadh" style="font-weight: normal; margin-right: 10px;"> AADHAAR </label>
-                        <input type="radio" id='eid'>
+                        <input type="radio" id='eid' name="aadeid">
                         <label for="eid" style="font-weight: normal;"> EID </label>
                     </td>     
                 </tr>
@@ -561,6 +563,8 @@
                         ,the applicant, in the capacity of 
                             <select style="font-weight: normal; margin-left: 10px;"> 
                                 <option style="font-weight: normal;"> -- Please Select -- </option>
+                                <option style="font-weight: normal;"> Himself/Herself </option>
+                                <option style="font-weight: normal;"> Representative Assessee </option>
                             </select>
                         do hereby declare that what is stated above is true to the best of my information and belief.
                         I have enclosed  <input type="text" id="docnum" style="width: 50px;"> (number of documents) in
@@ -592,18 +596,31 @@
                         <p style="font-weight: normal;"> I/We have enclosed 
                             <select style="font-weight: normal; width: 700px;" id="proofofiden"> 
                                 <option style="font-weight: normal;"> -- Please Select -- </option>
+                                <option style="font-weight: normal;"> Aadhaar Card </option>
+                                <option style="font-weight: normal;"> Voter's ID </option>
+                                <option style="font-weight: normal;"> Passport </option>
                             </select>
                             as proof of Identity, 
                             <select style="font-weight: normal; width: 700px;" id="proofofadd"> 
                                 <option style="font-weight: normal;"> -- Please Select -- </option>
+                                <option style="font-weight: normal;"> Aadhaar Card </option>
+                                <option style="font-weight: normal;"> Voter's ID </option>
+                                <option style="font-weight: normal;"> Passport </option>
+                                <option style="font-weight: normal;"> Smart Card </option>
                             </select> 
                             as proof of address,
                             <select style="font-weight: normal; width: 700px;" id="proofofdob"> 
                                 <option style="font-weight: normal;"> -- Please Select -- </option>
+                                <option style="font-weight: normal;"> Birth Certificate </option>
+                                <option style="font-weight: normal;"> Aadhaar Card </option>
+                                <option style="font-weight: normal;"> Voter's ID </option>
+                                <option style="font-weight: normal;"> Passport </option>
                             </select>
                             as proof of date of birth and
                             <select style="font-weight: normal; width: 200px;" id="proofofpan"> 
                                 <option style="font-weight: normal;"> -- Please Select -- </option>
+                                <option style="font-weight: normal;"> PAN Card </option>
+                                <option style="font-weight: normal;"> PAN Allotment Letter </option>
                             </select>  as proof of PAN allotted.
                         </p>
                     </td>  
@@ -613,9 +630,9 @@
                     <td> </td>
                     <td colspan="2">
                         <p> Whether you wish to have?  
-                            <input type="radio" id="pypan" style="margin-left: 20px;">
+                            <input type="radio" id="pypan" style="margin-left: 20px;" name="pepan">
                             <label for="pypan" style="font-weight: normal;"> Physical PAN Card & e-PAN Card </label>
-                            <input type="radio" id="epan" style="margin-left: 20px;">
+                            <input type="radio" id="epan" style="margin-left: 20px;" name="pepan">
                             <label for="epan" style="font-weight: normal;"> Only e-PAN </label>
                             <span style="font-size: small; color: black; margin-left: 25px;
                             text-decoration: underline; font-style: italic;"> Fees Applicable </span>
@@ -666,9 +683,9 @@
         <div>
 
             <p> For Paperless PAN Application:
-                <input type="radio" id='pyes' style="padding-left: 10px;">
+                <input type="radio" id='pyes' style="padding-left: 10px;" name="plpan">
                 <label for="pyes" > Yes </label>
-                <input type="radio" id='pno' style="padding-left: 10px;"> 
+                <input type="radio" id='pno' style="padding-left: 10px;" name="plpan"> 
                 <label for="pno"> No </label>   
             </p>
 
@@ -677,6 +694,8 @@
                 <label for="dsc" > DSC </label>
                 <select style="width: 200px;"> 
                     <option> --Select-- </option>
+                    <option> Minor </option>
+                    <option> Self </option>
                 </select>
                 <span style="text-decoration: underline; font-size: small;"> Guidelines for DSC user <span>
             </p>
@@ -696,11 +715,11 @@
             <input type="text" id="upphoto" style="margin-left: 262px; width: 300px;">
 
             <br style="margin-top: 0px;">
-            <label for="upsign""> ALREADY UPLOADED SIGNATURE: </label>
+            <label for="upsign"> ALREADY UPLOADED SIGNATURE: </label>
             <input type="text" id="upsign" style="margin-left: 232px; width: 200px;">
 
             <br style="margin-top: 0px;">
-            <label for="updocu""> ALREADY UPLOADED DOCUMENTS: </label>
+            <label for="updocu"> ALREADY UPLOADED DOCUMENTS: </label>
             <textarea id="updocu" style="margin-left: 224px; width: 400px; height: 100px;">
             </textarea>
             
